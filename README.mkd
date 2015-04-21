@@ -1,0 +1,8 @@
+TESS India Content
+==================
+
+Generating the TESS India site archive
+--------------------------------------
+
+From the main directory, run `./generate_archive.sh`. This will generate a directory called `www.open.edu` which will contain the TESS site content
+
