@@ -1,0 +1,56 @@
+body {
+    min-width: 100px;
+}
+#page {
+    width: auto;
+    max-width: 60em;
+}
+/* HEADER */
+#page-openlearnworks-rhs {
+    display: none;
+}
+#page-cobrand-image img {
+    max-width: 100%;
+}
+
+/* MAIN SECTION */
+#region-pre {
+    display: none;
+}
+body.side-pre-only #page-content #region-main {
+    margin-left: 0;
+}
+
+.left.side,
+.right.side {
+    display: none;
+}
+.course-content ul.topics li.section .content {
+    margin: 0;
+}
+
+/* FOOTER */
+#page-footer {
+    max-width: 66.666666em;
+    height: auto;
+    margin: 0 auto;
+}
+#page-footer-image {
+    max-width: 100%;
+    height: auto;
+}
+div#page-footer-image div#footer1.wfooter-block,
+#footer1 {
+    max-width: 100%;
+    max-height: 38px;
+    margin-right: 0;
+}
+
+#page-footer-copyright {
+    max-width: 100%;
+}
+
+/* HIDE NON WORKING PARTS */
+#enrolbutton {
+    display: none;
+}

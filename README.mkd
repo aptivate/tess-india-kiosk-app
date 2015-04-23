@@ -6,3 +6,20 @@ Generating the TESS India site archive
 
 From the main directory, run `./generate_archive.sh`. This will generate a directory called `www.open.edu` which will contain the TESS site content
 
+
+Optimize archive copy for mobile viewing
+----------------------------------------
+
+First make sure that you have Python packages listed in `archive_optimize/requirements.py` installed.
+
+From the main directory, run 
+`archive_optimize/archive_optimize.py www.open.edu <destination directory>`
+to make a processed copy of directory www.open.edu. Destination directory
+must not exist or the script will terminate.
+
+What the script does is:
+* make a copy of all files
+* add mobile friendly CSS to pages
+* remove inline styles from pages
+* replaces embedded YouTube videos with HTML5 video player pointing to local
+  copy of video
