@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 import os
-import shutil
 import sys
+from distutils import dir_util
 
 from bs4 import BeautifulSoup
 import magic
@@ -10,6 +10,7 @@ import magic
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 MOBILE_CSS_FILE = os.path.join(BASE_DIR, 'mobile.css')
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 with open(MOBILE_CSS_FILE, 'r') as f:
     MOBILE_CSS = u"%s" % f.read()
@@ -87,15 +88,12 @@ def is_webpage(filename):
     return webpage
 
 
-def copy_tree(src, dst):
-    if os.path.exists(dst):
+def main(orig_dir, copy_dir):
+    if os.path.exists(copy_dir):
         print 'Destination directory already exists. Exiting!'
         sys.exit(1)
-    shutil.copytree(src, dst)
-
-
-def main(orig_dir, copy_dir):
-    copy_tree(orig_dir, copy_dir)
+    dir_util.copy_tree(MEDIA_DIR, copy_dir)
+    dir_util.copy_tree(orig_dir, copy_dir)
     for root, dirs, files in os.walk(copy_dir):
         if len(files):
             for name in files:

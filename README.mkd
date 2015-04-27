@@ -10,7 +10,7 @@ From the main directory, run `./generate_archive.sh`. This will generate a direc
 Optimize archive copy for mobile viewing
 ----------------------------------------
 
-First make sure that you have Python packages listed in `archive_optimize/requirements.py` installed.
+First make sure that you have Python packages listed in `archive_optimize/requirements.txt` installed.
 
 From the main directory, run 
 `archive_optimize/archive_optimize.py www.open.edu <destination directory>`
@@ -19,7 +19,50 @@ must not exist or the script will terminate.
 
 What the script does is:
 * make a copy of all files
+* add in the tess-india favicon in `tessindia/favicon.png`
 * add mobile friendly CSS to pages
 * remove inline styles from pages
 * replaces embedded YouTube videos with HTML5 video player pointing to local
   copy of video
+
+Build a zim archive
+-------------------
+
+# Install [zimwriterfs](http://sourceforge.net/p/kiwix/other/ci/master/tree/zimwriterfs/)
+
+> "zimwriterfs is a console tool to create ZIM files from a localy stored
+> directory containing a "self-sufficient" HTML content (with pictures,
+> javascript, stylesheets). The result will contain all the files of the local
+> directory compressed and merged in the ZIM file. Nothing more, nothing less.
+> zimwriterfs works, for now only, on POSIX compatible systems. You simply need
+> to compile it and run it. The software does not need a lot of resources, but if
+> you create a pretty big ZIM files, then it could take a while to complete"
+> http://sourceforge.net/p/kiwix/other/ci/master/tree/zimwriterfs/
+
+Install dependencies:
+
+    sudo apt-get install libmagic-dev liblzma-dev autoconf libtool libzim-dev
+
+
+    git clone git://git.code.sf.net/p/kiwix/other kiwix-other 
+    cd kiwix-other/zimwriterfs
+    ./autogen.sh
+    autoreconf --force --install
+    ./configure
+    make
+
+
+# Make an archive from the optimised content
+
+Here's the command I used.  I have my optimised content 
+in `optimised` (destination directory for archive_optimize above).
+
+    {path to zimwriterfs}/zimwriterfs \
+        --welcome='openlearnworks/course/view.php?id=1911.html' \
+        --favicon=tessindia/favicon.png \
+        --language=eng \
+        --title=TESSIndia \
+        --description='Tess India' \
+        --creator=Aptivate \
+        --publisher='The Open University' \
+        optimised tessindia.zim
