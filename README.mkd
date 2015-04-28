@@ -6,6 +6,8 @@ Generating the TESS India site archive
 
 From the main directory, run `./generate_archive.sh`. This will generate a directory called `www.open.edu` which will contain the TESS site content
 
+You can also run `./generate_archive.sh small` to just get one web page plus it's videos and dependencies.  It gets around 200 MB, so is handy for creating a small archive and testing the various scripts.
+
 
 Optimize archive copy for mobile viewing
 ----------------------------------------
