@@ -10,7 +10,7 @@ From the main directory, run `./generate_archive.sh`. This will generate a direc
 Optimize archive copy for mobile viewing
 ----------------------------------------
 
-First make sure that you have Python packages listed in `archive_optimize/requirements.txt` installed.
+First make sure that you have Python packages listed in `archive_optimize/requirements.txt` installed and that you don't have the `python-magic` debian package installed.  ([see this for more about the conflicts](http://stackoverflow.com/a/16203777/3189)).
 
 From the main directory, run 
 `archive_optimize/archive_optimize.py www.open.edu <destination directory>`
