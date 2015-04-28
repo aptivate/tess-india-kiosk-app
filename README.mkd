@@ -25,6 +25,18 @@ What the script does is:
 * replaces embedded YouTube videos with HTML5 video player pointing to local
   copy of video
 
+
+Copying archive to PI for serving
+---------------------------------
+
+Install Fabric if you don't have it yet. Afterwards run
+`fab copy:<content_dir> -H <pi_address>` where <content_dir> is path of the
+directory you want to copy (can be relative and include ~) and <pi_address>
+is hostname or IP address of PI.
+
+On successful completion you should find the content at http://<ip_address>.
+
+
 Build a zim archive
 -------------------
 
