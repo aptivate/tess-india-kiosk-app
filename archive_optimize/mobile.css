@@ -1,3 +1,7 @@
+html,
+body {
+    height: 100%;
+}
 body {
     min-width: 100px;
 }
@@ -6,24 +10,38 @@ body {
     max-width: 60em;
 }
 /* HEADER */
-#page-openlearnworks-rhs {
-    display: none;
-}
 #page-cobrand-image img {
     max-width: 100%;
 }
+.ol-variant-grey #page-header-back,
+#page-header-back {
+    min-height: auto;
+    background: none repeat scroll 0% 0% transparent;
+}
+#page-header {
+    min-height: auto;
+    background: none repeat scroll 0% 0% transparent;
+}
+#page-header .breadcrumb {
+    width: auto;
+    max-width: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    color: black;
+}
+.breadcrumb li {
+    display: inline-block;
+}
+.ol-variant-grey .breadcrumb a {
+    color: #909090;
+}
+.breadcrumb .arrow {
+    padding-right: 10px;
+}
 
 /* MAIN SECTION */
-#region-pre {
-    display: none;
-}
 body.side-pre-only #page-content #region-main {
     margin-left: 0;
-}
-
-.left.side,
-.right.side {
-    display: none;
 }
 .course-content ul.topics li.section .content {
     margin: 0;
@@ -38,19 +56,13 @@ body.side-pre-only #page-content #region-main {
 #page-footer-image {
     max-width: 100%;
     height: auto;
+    margin: 0 auto;
 }
-div#page-footer-image div#footer1.wfooter-block,
-#footer1 {
-    max-width: 100%;
-    max-height: 38px;
-    margin-right: 0;
+div#page-footer-image div.wfooter-block,
+#footer3 {
+    display: inline-block;
+    vertical-align: top;
 }
-
-#page-footer-copyright {
-    max-width: 100%;
-}
-
-/* HIDE NON WORKING PARTS */
-#enrolbutton {
-    display: none;
+#footer3 {
+    margin-left: 40px;
 }
