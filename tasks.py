@@ -1,9 +1,12 @@
+import os
 from fabric.api import sudo, put, run
 
 
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
+
 def delete_old_content_on_pi():
-    sudo('rm -rf /var/www/tess')
-    sudo('rm -f /var/www/index.html')
+    sudo('rm -rf /var/www/*')
 
 
 def copy_content_to_pi(srcdir):
@@ -15,13 +18,16 @@ def copy_content_to_pi(srcdir):
     src += '*'
     put(src, '/tmp/tess')
 
+    webcontent = os.path.join(BASE_DIR, 'WebContent/*')
+    put(webcontent, '/tmp/tess')  # Copy index.html with resources
+
 
 def move_content_to_www():
-    sudo('mv /tmp/tess /var/www/tess')
+    sudo('mv /tmp/tess/* /var/www/')
 
 
 def link_first_page():
-    echo_cmd = 'Redirect 302 /index.html /tess/openlearnworks/course/view.php%3fid=1911.html'
+    echo_cmd = 'Redirect 302 /tess.html /openlearnworks/course/view.php%3fid=1911.html'
     sudo('rm -f /var/www/.htaccess')
     sudo('echo "%s" > /tmp/.htaccess' % echo_cmd)
     sudo('mv /tmp/.htaccess /var/www/.htaccess')
