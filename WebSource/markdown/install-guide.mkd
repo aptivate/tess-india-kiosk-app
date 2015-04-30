@@ -54,4 +54,4 @@ View the TESS archive
 Now transfer the SD card from the server to your phone. Extract the archive on it to `/storage/emulated/0/servdroid/var/www/`. Start ServDroid and you can view it's contents at [http://localhost:8080/](http://localhost:8080/)
 ![Starting ServDroid](static/images/starting_servdroid_tiny.png)
 
-You can also [browse TESS India archive](tess.html).
+You can also [browse the TESS India archive](tesscontent).
