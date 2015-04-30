@@ -26,6 +26,8 @@ Then find the 'Settings' app and open it.
 ![Samasung Galaxy settings app](/static/images/samsung_galaxy_settings_app_tiny.png)
 Scroll down until you see 'Security'.
 ![Samasung Galaxy application list](/static/images/samsung_galaxy_security_tiny.png)
+Go into the security settings and check a box called 'Unknown sources'.
+![Samasung Galaxy warning](/static/images/samsung_galaxy_unknown_sources_tiny.png)
 Read the warning message and select 'OK'. It is safe to do so for the APK's we're providing.
 ![Samasung Galaxy warning](/static/images/samsung_galaxy_warning.png)
 
