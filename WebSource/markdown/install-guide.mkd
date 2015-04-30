@@ -22,7 +22,7 @@ In order to install the applications you just downloaded, you will need to chang
 
 Open the list of applications on your phone. This may be done through something like a four by four grid of rectangles in the right hand corner, or a circle with two rows of three dots in it.
 ![Samasung Galaxy application list](/static/images/samsung_galaxy_application_list_tiny.png)
-Then find the 'Settings' app and open it.
+Find the 'Settings' app and open it.
 ![Samasung Galaxy settings app](/static/images/samsung_galaxy_settings_app_tiny.png)
 Scroll down until you see 'Security'.
 ![Samasung Galaxy application list](/static/images/samsung_galaxy_security_tiny.png)
