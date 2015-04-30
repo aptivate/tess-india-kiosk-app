@@ -1,0 +1,56 @@
+Obtaining and Viewing TESS India OER Content
+============================================
+
+In order to view and use TESS content on your phone, you will need to install some extra applications.
+
+Getting the Applications
+------------------------
+
+Download the following APKs:
+
+* [ServDroid](/static/apps/org.servDroid.web_1000300.apk) 
+* [ODK collect](/static/apps/ODK Collect v1.4.5 rev 1048.apk)
+
+You will also need the archive that you can transfer near the end of this manual
+
+Installing the Applications
+---------------------------
+
+### Updating your settings ###
+
+In order to install the applications you just downloaded, you will need to change the settings on your phone to allow installing applications from unknown sources (i.e. not the Google Play store).
+
+Open the list of applications on your phone. This may be done through something like a four by four grid of rectangles in the right hand corner, or a circle with two rows of three dots in it.
+
+![Samasung Galaxy application list](/static/images/samsung_galaxy_application_list_tiny.png)
+Then find the 'Settings' app and open it.
+![Samasung Galaxy settings app](/static/images/samsung_galaxy_settings_app_tiny.png)
+Scroll down until you see 'Security'.
+![Samasung Galaxy application list](/static/images/samsung_galaxy_security_tiny.png)
+Read the warning message and select 'OK'. It is safe to do so for the APK's we're providing.
+![Samasung Galaxy warning](/static/images/samsung_galaxy_warning.png)
+
+### Installing the APKs ###
+
+![My Files App](/static/images/my_files_tiny.png)
+To install the APKs, open My Files (or another android file browser) and open the "Download" folder on the device.
+![Download Folder](/static/images/download_folder_tiny.png)
+The APKs you downloaded should be inside. Depending on which application you used to download the applications, they may be in a different folder.
+![Browser url](/static/images/browser_url_tiny.png)
+If MyFiles isn't installed, use a web browser like Chrome and go to `file:///location/where/apks/were/downloaded/` (probably a subfolder of `/sdcard`). The actual url will look something like `file:///sdcard/Download/`.
+
+Run each APK select `Install` or possibly `Next` and then `Install`.
+![Install screen](/static/images/install.png)
+
+Get the TESS archive
+--------------------
+
+Put your SD card into the server and click the following link to  copy the TESS India catalogue on to it. [Copy TESS India archive to SD card](copy_tess_india.html)
+
+View the TESS archive
+---------------------
+
+Now transfer the SD card from the server to your phone. Extract the archive on it to `/storage/emulated/0/servdroid/var/www/`. Start ServDroid and you can view it's contents at [http://localhost:8080/](http://localhost:8080/)
+![Starting ServDroid](/static/images/starting_servdroid_tiny.png)
+
+You can also [browse TESS India archive](tess.html).
