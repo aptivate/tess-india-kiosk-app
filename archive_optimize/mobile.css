@@ -46,6 +46,9 @@ body.side-pre-only #page-content #region-main {
 .course-content ul.topics li.section .content {
     margin: 0;
 }
+.section.img-text li.activity {
+    margin: 1em 0;  /* Increase margin's on first page for easier control with fingers */
+}
 
 /* FOOTER */
 #page-footer {
