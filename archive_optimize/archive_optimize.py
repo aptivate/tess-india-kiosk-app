@@ -32,10 +32,10 @@ def remove_unwanted_blocks(soup):
     selectors = (
         '#page-openlearnworks-header',
         '#page-openlearnworks-rhs',
-        '#page-header h1.header-title',
         '#enrolbutton ',
-        # '#region-pre',
         '#region-pre .block.oucontent-printablelink',
+        '.oucontent-linkwithtip',
+        '.oucontent-linktip',
         '.left.side',
         '.right.side',
         '.page-footer-links',
@@ -99,6 +99,18 @@ def add_dfid_logo(soup, filename):
         footer_root.append(footer3)
 
 
+def add_home_link_to_logo(soup):
+    title = soup.select('#page-header h1.header-title')
+    if title:
+        title = title[0]
+        home_url = title.find("a")['href']
+        logo_wrap = soup.find(True, id="page-cobrand-image")
+        logo_wrap.img.wrap(
+            soup.new_tag("a", href=home_url)
+        )
+        title.extract()
+
+
 def fix_sidebar(soup):
     '''
     Remove sidebar if there is no interesting content in it.
@@ -111,13 +123,11 @@ def fix_sidebar(soup):
         branch = sidebar.select(".depth_4.current_branch")
         sidebar_root = sidebar.select("ul.block_tree")
         if branch and sidebar_root:
-            print 'update sidebar'
             branch = branch[0]
             sidebar_root = sidebar_root[0]
             sidebar_root.clear()
             sidebar_root.append(branch)
         else:
-            print 'remove sidebar'
             sidebar.extract()
 
 
@@ -125,6 +135,7 @@ def process_page(content, filename):
     soup = BeautifulSoup(content)
 
     add_mobile_css(soup)
+    add_home_link_to_logo(soup)
     remove_inline_styles(soup)
     remove_unwanted_blocks(soup)
     replace_youtube_videos(soup)
