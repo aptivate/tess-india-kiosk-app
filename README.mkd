@@ -5,6 +5,7 @@ Quick version
 -------------
 
     ./generate_archive.sh
+    rm -rf SiteArchive/generated_content/optimized
     ./archive_optimize/archive_optimize.py SiteArchive/generated_content/www.open.edu SiteArchive/generated_content/optimized
     ./generate_site.sh
     fab copy -H 10.0.156.125
