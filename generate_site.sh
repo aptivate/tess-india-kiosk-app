@@ -11,8 +11,6 @@ OUT_DIR=$SCRIPT_DIR/WebContent
 # remove old output
 rm -rf $OUT_DIR
 mkdir $OUT_DIR
-# the empty file is for git
-touch $OUT_DIR/empty
 
 # copy HTML, images, CSS etc
 cp -r $HTML_DIR/* $OUT_DIR
