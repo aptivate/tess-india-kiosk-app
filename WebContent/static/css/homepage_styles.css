@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+h1, h2, h3, ul, p {
+	font-family: sans-serif;
+}
+
+img {
+	display: block;
+}
+
+ul, p {
+    margin: 1em 1.5em;
+}
+
+img {
+	margin: 1em 0;
+}
+
+h1 {
+	margin: 0.4em;
+}
+
+h2 {
+	margin: 0.6em;
+}
+
+h3 {
+	margin: 0.8em;
+}
