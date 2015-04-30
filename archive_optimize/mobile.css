@@ -42,12 +42,16 @@ body {
 /* MAIN SECTION */
 body.side-pre-only #page-content #region-main {
     margin-left: 0;
+    overflow: hidden;
 }
 .course-content ul.topics li.section .content {
     margin: 0;
 }
 .section.img-text li.activity {
     margin: 1em 0;  /* Increase margin's on first page for easier control with fingers */
+}
+.block-region {
+    min-height: auto;
 }
 
 /* FOOTER */
@@ -69,3 +73,13 @@ div#page-footer-image div.wfooter-block,
 #footer3 {
     margin-left: 40px;
 }
+
+@media only screen and (max-width : 600px) {
+    #page-content #region-pre {
+        width: 100%;
+    }
+    #page-content #region-main {
+        float: left;
+    }
+}
+
