@@ -21,7 +21,6 @@ Installing the Applications
 In order to install the applications you just downloaded, you will need to change the settings on your phone to allow installing applications from unknown sources (i.e. not the Google Play store).
 
 Open the list of applications on your phone. This may be done through something like a four by four grid of rectangles in the right hand corner, or a circle with two rows of three dots in it.
-
 ![Samasung Galaxy application list](/static/images/samsung_galaxy_application_list_tiny.png)
 Then find the 'Settings' app and open it.
 ![Samasung Galaxy settings app](/static/images/samsung_galaxy_settings_app_tiny.png)
@@ -32,12 +31,12 @@ Read the warning message and select 'OK'. It is safe to do so for the APK's we'r
 
 ### Installing the APKs ###
 
-![My Files App](/static/images/my_files_tiny.png)
 To install the APKs, open My Files (or another android file browser) and open the "Download" folder on the device.
-![Download Folder](/static/images/download_folder_tiny.png)
+![My Files App](/static/images/my_files_tiny.png)
 The APKs you downloaded should be inside. Depending on which application you used to download the applications, they may be in a different folder.
-![Browser url](/static/images/browser_url_tiny.png)
+![Download Folder](/static/images/download_folder_tiny.png)
 If MyFiles isn't installed, use a web browser like Chrome and go to `file:///location/where/apks/were/downloaded/` (probably a subfolder of `/sdcard`). The actual url will look something like `file:///sdcard/Download/`.
+![Browser url](/static/images/browser_url_tiny.png)
 
 Run each APK select `Install` or possibly `Next` and then `Install`.
 ![Install screen](/static/images/install.png)
@@ -45,7 +44,7 @@ Run each APK select `Install` or possibly `Next` and then `Install`.
 Get the TESS archive
 --------------------
 
-Put your SD card into the server and click the following link to  copy the TESS India catalogue on to it. [Copy TESS India archive to SD card](copy_tess_india.html)
+Put your SD card into the server and click the following link to copy the TESS India catalogue on to it. [Copy TESS India archive to SD card](copy_tess_india.html)
 
 View the TESS archive
 ---------------------
