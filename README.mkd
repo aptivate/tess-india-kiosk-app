@@ -1,6 +1,15 @@
 TESS India Content
 ==================
 
+Quick version
+-------------
+
+    ./generate_archive.sh
+    rm -rf SiteArchive/generated_content/optimized
+    ./archive_optimize/archive_optimize.py SiteArchive/generated_content/www.open.edu SiteArchive/generated_content/optimized
+    ./generate_site.sh
+    fab copy -H 10.0.156.125
+
 Generating the TESS India site archive
 --------------------------------------
 
@@ -28,15 +37,26 @@ What the script does is:
   copy of video
 
 
+Generate the static HTML
+------------------------
+
+Run `./generate_site.sh` to convert markdown to HTML in ./WebContent/
+
+
 Copying archive to PI for serving
 ---------------------------------
 
 Install Fabric if you don't have it yet. Afterwards run
-`fab copy:<content_dir> -H <pi_address>` where <content_dir> is path of the
-directory you want to copy (can be relative and include ~) and <pi_address>
-is hostname or IP address of PI.
+`fab copy -H <pi_address>` where <pi_address> is hostname or IP address of PI.
 
 On successful completion you should find the content at http://<ip_address>.
+
+
+
+OLD
+===
+
+Or maybe future, but at any rate not now.
 
 
 Build a zim archive

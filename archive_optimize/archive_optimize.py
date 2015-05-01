@@ -131,6 +131,30 @@ def fix_sidebar(soup):
             sidebar.extract()
 
 
+def remove_illegal_chars_from_name(text):
+    """
+    The VFAT filesystem cannot have file names with the following characters:
+        \ / : * ? " < > | ^
+
+    We also need to remove the HTML encoded version
+
+    And we'll remove & just to be sure.
+    """
+    return text.replace('?', 'Q').replace('%3F', 'Q') \
+        .replace('|', 'P') \
+        .replace('&', 'M').replace('%26', 'M')
+
+
+def remove_illegal_chars_from_links(soup):
+    """
+    We can't have ? in filenames in VFAT, as used by SD cards
+
+    So instead we replace ? by Q, and then do the same to filenames
+    """
+    for link in soup.find_all('a', href=True):
+        link.attrs['href'] = remove_illegal_chars_from_name(link.attrs['href'])
+
+
 def process_page(content, filename):
     soup = BeautifulSoup(content)
 
@@ -138,6 +162,7 @@ def process_page(content, filename):
     add_home_link_to_logo(soup)
     remove_inline_styles(soup)
     remove_unwanted_blocks(soup)
+    remove_illegal_chars_from_links(soup)
     replace_youtube_videos(soup)
     add_dfid_logo(soup, filename)
     fix_sidebar(soup)
@@ -153,6 +178,12 @@ def process_file(filename):
 
     with open(filename, 'w') as f:
         f.write(content.encode('utf8'))
+
+
+def remove_illegal_chars_from_filename(filename):
+    new_filename = remove_illegal_chars_from_name(filename)
+    if new_filename != filename:
+        os.rename(filename, new_filename)
 
 
 def copy_new_logo(copy_dir):
@@ -190,6 +221,7 @@ def main(orig_dir, copy_dir):
                 if is_webpage(f):
                     print 'Processing: ', f
                     process_file(f)
+                remove_illegal_chars_from_filename(f)
 
 
 if __name__ == '__main__':
