@@ -2,7 +2,7 @@
 
 ## The content
 
-You can browse it on this server - the [content starts here](tess.html).
+You can browse it on this server - the [content starts here](tesscontent).
 
 ## Setting up your phone
 

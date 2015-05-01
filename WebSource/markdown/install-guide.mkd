@@ -20,27 +20,27 @@ Installing the Applications
 In order to install the applications you just downloaded, you will need to change the settings on your phone to allow installing applications from unknown sources (i.e. not the Google Play store).
 
 Open the list of applications on your phone. This may be done through something like a four by four grid of rectangles in the right hand corner, or a circle with two rows of three dots in it.
-![Samasung Galaxy application list](/static/images/samsung_galaxy_application_list_tiny.png)
+![Samasung Galaxy application list](static/images/samsung_galaxy_application_list_tiny.png)
 Find the 'Settings' app and open it.
-![Samasung Galaxy settings app](/static/images/samsung_galaxy_settings_app_tiny.png)
+![Samasung Galaxy settings app](static/images/samsung_galaxy_settings_app_tiny.png)
 Scroll down until you see 'Security'.
-![Samasung Galaxy application list](/static/images/samsung_galaxy_security_tiny.png)
+![Samasung Galaxy application list](static/images/samsung_galaxy_security_tiny.png)
 Go into the security settings and check a box called 'Unknown sources'.
-![Samasung Galaxy warning](/static/images/samsung_galaxy_unknown_sources_tiny.png)
+![Samasung Galaxy warning](static/images/samsung_galaxy_unknown_sources_tiny.png)
 Read the warning message and select 'OK'. It is safe to do so for the APK's we're providing.
-![Samasung Galaxy warning](/static/images/samsung_galaxy_warning.png)
+![Samasung Galaxy warning](static/images/samsung_galaxy_warning.png)
 
 ### Installing the APKs ###
 
 To install the APKs, open My Files (or another android file browser) and open the "Download" folder on the device.
-![My Files App](/static/images/my_files_tiny.png)
+![My Files App](static/images/my_files_tiny.png)
 The APKs you downloaded should be inside. Depending on which application you used to download the applications, they may be in a different folder.
-![Download Folder](/static/images/download_folder_tiny.png)
+![Download Folder](static/images/download_folder_tiny.png)
 If MyFiles isn't installed, use a web browser like Chrome and go to `file:///location/where/apks/were/downloaded/` (probably a subfolder of `/sdcard`). The actual url will look something like `file:///sdcard/Download/`.
-![Browser url](/static/images/browser_url_tiny.png)
+![Browser url](static/images/browser_url_tiny.png)
 
 Run each APK select `Install` or possibly `Next` and then `Install`.
-![Install screen](/static/images/install.png)
+![Install screen](static/images/install.png)
 
 Get the TESS archive
 --------------------
@@ -62,4 +62,4 @@ Navigate to `/servdroid/var/www/` and select 'Move Here'.
 Start ServDroid and you can view it's contents at [http://localhost:8080/](http://localhost:8080/)
 ![Starting ServDroid](/static/images/starting_servdroid_tiny.png)
 
-You can also [browse TESS India archive](tess.html).
+You can also [browse the TESS India archive](tess.html).
