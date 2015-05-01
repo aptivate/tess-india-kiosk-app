@@ -9,7 +9,6 @@ Getting the Applications
 Download the following APKs:
 
 * [ServDroid](/static/apps/org.servDroid.web_1000300.apk) 
-* [ODK collect](/static/apps/ODK Collect v1.4.5 rev 1048.apk)
 
 You will also need the archive that you can transfer near the end of this manual
 
@@ -46,12 +45,21 @@ Run each APK select `Install` or possibly `Next` and then `Install`.
 Get the TESS archive
 --------------------
 
-Put your SD card into the server and click the following link to copy the TESS India catalogue on to it. [Copy TESS India archive to SD card](copy_tess_india.html)
+[Download the TESS India archive to SD card](tess_india_archive.zip)
 
 View the TESS archive
 ---------------------
 
-Now transfer the SD card from the server to your phone. Extract the archive on it to `/storage/emulated/0/servdroid/var/www/`. Start ServDroid and you can view it's contents at [http://localhost:8080/](http://localhost:8080/)
+Open the My Files application. Go to the folder where you downloaded the archive and select it. You will be given the option to extract it, along with a name of the location to extract it to. 
+![Extract Archive](/static/images/extract_archive_dialog.png)
+Remember the name. Select OK. 
+Select and hold on the directory with the name from the last step until a row of checkboxes appear next to it. 
+![Extract Archive](/static/images/select_file_in_manager.png)
+Select the three dots to get an options list and select 'Move'. 
+![Move file](/static/images/choose_to_move.png)
+Navigate to `/servdroid/var/www/` and select 'Move Here'. 
+![Move file location](/static/images/confirm_move.png)
+Start ServDroid and you can view it's contents at [http://localhost:8080/](http://localhost:8080/)
 ![Starting ServDroid](/static/images/starting_servdroid_tiny.png)
 
 You can also [browse TESS India archive](tess.html).
