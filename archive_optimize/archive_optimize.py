@@ -151,7 +151,11 @@ def remove_illegal_chars_from_links(soup):
 
     So instead we replace ? by Q, and then do the same to filenames
     """
+    # first <a href="" ...
     for link in soup.find_all('a', href=True):
+        link.attrs['href'] = remove_illegal_chars_from_name(link.attrs['href'])
+    # then the CSS head <link href="" ...
+    for link in soup.find_all('link', href=True):
         link.attrs['href'] = remove_illegal_chars_from_name(link.attrs['href'])
 
 
