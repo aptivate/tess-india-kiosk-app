@@ -6,7 +6,8 @@ import re
 
 
 start_page = 'http://www.open.edu/openlearnworks/course/view.php?id=1911'
-subpage_identifier = 'oucontent'
+content_identifier = 'oucontent'
+subpage_identifier = 'subpage'
 
 
 def convert_page_to_soup(url):
@@ -30,10 +31,10 @@ def mid_level_page_parser(url):
         link = list_item.find('a', href=True)
 
         if link:
-            if subpage_identifier in link.attrs['href']:
+            if content_identifier in link.attrs['href']:
                 thin_soup = convert_page_to_soup(link.attrs['href'])
                 print_menu_links(thin_soup)
-            elif 'subpage' in link.attrs['href']:
+            elif subpage_identifier in link.attrs['href']:
                     mid_level_page_parser(link.attrs['href'])
                     print link.attrs['href']
             else:
