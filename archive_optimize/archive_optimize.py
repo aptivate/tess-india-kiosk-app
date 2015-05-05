@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import codecs
 import os
 import sys
 from distutils import dir_util
@@ -13,7 +14,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 MOBILE_CSS_FILE = os.path.join(BASE_DIR, 'mobile.css')
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
-with open(MOBILE_CSS_FILE, 'r') as f:
+with codecs.open(MOBILE_CSS_FILE, 'r', encoding='utf8') as f:
     MOBILE_CSS = u"%s" % f.read()
 
 
@@ -23,15 +24,30 @@ def add_mobile_css(soup):
     soup.head.append(mobile_style)
 
 
-def remove_inline_styles(soup):
+def remove_unwanted_styles(soup):
     for inlined in soup.select('[style]'):
         del inlined['style']
+
+    drop_classes = (
+        '.mod-indent-outer',
+        '.mod-indent',
+    )
+    for cls in drop_classes:
+        for obj in soup.select(cls):
+            del obj['class']
+
+    # Remove clearfix from footer because it create a white ribbon at the
+    # bottom
+    footer = soup.select("#page-footer")
+    if len(footer):
+        del footer[0]['class']
 
 
 def remove_unwanted_blocks(soup):
     selectors = (
         '#page-openlearnworks-header',
         '#page-openlearnworks-rhs',
+        '.arrow.sep',
         '#enrolbutton ',
         '#region-pre .block.oucontent-printablelink',
         '.oucontent-linkwithtip',
@@ -59,10 +75,12 @@ def build_video_element(soup, obj, link):
                          preload='metadata',
                          controls=True)
 
+    '''
     copy_attrs = ('height', 'width')
     for attr in copy_attrs:
         if obj.attrs.get(attr):
             video.attrs[attr] = obj.attrs[attr]
+    '''
 
     return video
 
@@ -99,16 +117,36 @@ def add_dfid_logo(soup, filename):
         footer_root.append(footer3)
 
 
-def add_home_link_to_logo(soup):
+def get_home_url_and_delete_title(soup):
+    home_url = None
+
     title = soup.select('#page-header h1.header-title')
     if title:
         title = title[0]
         home_url = title.find("a")['href']
-        logo_wrap = soup.find(True, id="page-cobrand-image")
-        logo_wrap.img.wrap(
-            soup.new_tag("a", href=home_url)
-        )
         title.extract()
+    return home_url
+
+
+def add_home_link_to_logo(soup, home_url):
+    logo_wrap = soup.find(True, id="page-cobrand-image")
+    logo_wrap.img.wrap(
+        soup.new_tag("a", href=home_url)
+    )
+
+
+def add_home_link_to_breadcrumbs(soup, home_url):
+    def create_crumb_link(soup, url, text):
+        li = soup.new_tag("li")
+        a = soup.new_tag("a", href=url)
+        a.string = text
+        li.append(a)
+        return li
+
+    breadcrumbs = soup.select(".breadcrumb ul")
+    for crumb in breadcrumbs:
+        li = create_crumb_link(soup, home_url, "Home")
+        crumb.insert(0, li)
 
 
 def fix_sidebar(soup):
@@ -151,7 +189,11 @@ def remove_illegal_chars_from_links(soup):
 
     So instead we replace ? by Q, and then do the same to filenames
     """
+    # first <a href="" ...
     for link in soup.find_all('a', href=True):
+        link.attrs['href'] = remove_illegal_chars_from_name(link.attrs['href'])
+    # then the CSS head <link href="" ...
+    for link in soup.find_all('link', href=True):
         link.attrs['href'] = remove_illegal_chars_from_name(link.attrs['href'])
 
 
@@ -159,8 +201,13 @@ def process_page(content, filename):
     soup = BeautifulSoup(content)
 
     add_mobile_css(soup)
-    add_home_link_to_logo(soup)
-    remove_inline_styles(soup)
+
+    home_url = get_home_url_and_delete_title(soup)
+    if home_url:
+        add_home_link_to_logo(soup, home_url)
+        add_home_link_to_breadcrumbs(soup, home_url)
+
+    remove_unwanted_styles(soup)
     remove_unwanted_blocks(soup)
     remove_illegal_chars_from_links(soup)
     replace_youtube_videos(soup)

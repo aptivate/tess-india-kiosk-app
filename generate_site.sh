@@ -41,5 +41,6 @@ fi
 
 if [ $skipzip = "noskip" ]; then
     # create zip file (and dir)
-    zip -r $OUT_DIR/tess.zip $TESS_DIR
+    cd $OUT_DIR
+    zip -r tess.zip tesscontent
 fi

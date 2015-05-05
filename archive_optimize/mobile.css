@@ -1,9 +1,12 @@
 html,
 body {
-    height: 100%;
+    min-height: 100%;
 }
 body {
     min-width: 100px;
+}
+video {
+    width: 100%;
 }
 #page {
     width: auto;
@@ -32,6 +35,10 @@ body {
 }
 .breadcrumb li {
     display: inline-block;
+}
+.breadcrumb li > a::after {
+    content: "›";
+    text-decoration: none;
 }
 .ol-variant-grey .breadcrumb a {
     color: #909090;
