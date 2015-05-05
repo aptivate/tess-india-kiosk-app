@@ -35,6 +35,12 @@ def remove_unwanted_styles(soup):
         for obj in soup.select(cls):
             del obj['class']
 
+    # Remove clearfix from footer because it create a white ribbon at the
+    # bottom
+    footer = soup.select("#page-footer")
+    if len(footer):
+        del footer[0]['class']
+
 
 def remove_unwanted_blocks(soup):
     selectors = (
