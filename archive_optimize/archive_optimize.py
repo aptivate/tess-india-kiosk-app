@@ -75,10 +75,12 @@ def build_video_element(soup, obj, link):
                          preload='metadata',
                          controls=True)
 
+    '''
     copy_attrs = ('height', 'width')
     for attr in copy_attrs:
         if obj.attrs.get(attr):
             video.attrs[attr] = obj.attrs[attr]
+    '''
 
     return video
 

@@ -5,6 +5,9 @@ body {
 body {
     min-width: 100px;
 }
+video {
+    width: 100%;
+}
 #page {
     width: auto;
     max-width: 60em;
