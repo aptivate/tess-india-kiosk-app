@@ -8,6 +8,7 @@ import re
 start_page = 'http://www.open.edu/openlearnworks/course/view.php?id=1911'
 content_identifier = 'oucontent'
 subpage_identifier = 'subpage'
+link_list_item_regex = '(subpage|oucontent)'
 
 
 def convert_page_to_soup(url):
@@ -25,7 +26,7 @@ def print_menu_links(soup):
 
 def mid_level_page_parser(url):
     soup = convert_page_to_soup(url)
-    page = soup.findAll('li', class_=re.compile('(subpage|oucontent)'))
+    page = soup.findAll('li', class_=re.compile(link_list_item_regex))
 
     for list_item in page:
         link = list_item.find('a', href=True)
@@ -45,7 +46,7 @@ def top_level_page_parser(url):
     web_page = requests.get(url)
     the_soup = BeautifulSoup(web_page.text)
 
-    page = the_soup.findAll('li', class_=re.compile('(subpage|oucontent)'))
+    page = the_soup.findAll('li', class_=re.compile(link_list_item_regex))
 
     for list_item in page:
         link = list_item.find('a', href=True)
