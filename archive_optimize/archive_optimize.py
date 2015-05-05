@@ -23,9 +23,17 @@ def add_mobile_css(soup):
     soup.head.append(mobile_style)
 
 
-def remove_inline_styles(soup):
+def remove_unwanted_styles(soup):
     for inlined in soup.select('[style]'):
         del inlined['style']
+
+    drop_classes = (
+        '.mod-indent-outer',
+        '.mod-indent',
+    )
+    for cls in drop_classes:
+        for obj in soup.select(cls):
+            del obj['class']
 
 
 def remove_unwanted_blocks(soup):
@@ -164,7 +172,7 @@ def process_page(content, filename):
 
     add_mobile_css(soup)
     add_home_link_to_logo(soup)
-    remove_inline_styles(soup)
+    remove_unwanted_styles(soup)
     remove_unwanted_blocks(soup)
     remove_illegal_chars_from_links(soup)
     replace_youtube_videos(soup)
