@@ -8,11 +8,13 @@ GENERATED_DIR=$SCRIPT_DIR/SiteArchive/generated_content
 TESS_URLS_FILE=$GENERATED_DIR/tess_urls_file
 TESS_OER_URLS=$GENERATED_DIR/tess_oer_urls.txt
 
-ARCHIVE_URLS=$SCRIPT_DIR/SiteArchive/urls
+ARCHIVE_URLS=$SCRIPT_DIR/SiteArchive/generated_content/urls
 
 if [ ! -d "$GENERATED_DIR" ]; then
    mkdir $GENERATED_DIR
 fi
+
+$SCRIPT_DIR/extract_urls/extract_urls.py
 
 # using the argument "small" means that only one web page will be downloaded (plus it's videos, CSS etc)
 if [ $# -eq 1 ] && [ $1 = 'small' ]; then
