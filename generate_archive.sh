@@ -15,7 +15,7 @@ if [ ! -d "$GENERATED_DIR" ]; then
 fi
 
 # using the argument "small" means that only one web page will be downloaded (plus it's videos, CSS etc)
-if [ $1 = 'small' ]; then
+if [ $# -eq 1 ] && [ $1 = 'small' ]; then
     cp $ARCHIVE_URLS/tess_india_video_resources/planning_lessons_urls $TESS_OER_URLS
 else
     find $ARCHIVE_URLS -type f -exec ls -1 {} \; 2> /dev/null > $TESS_URLS_FILE

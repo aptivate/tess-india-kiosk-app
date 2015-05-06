@@ -23,6 +23,10 @@ def add_mobile_css(soup):
     mobile_style.append(MOBILE_CSS)
     soup.head.append(mobile_style)
 
+    meta = soup.new_tag("meta", content="width=device-width")
+    meta.attrs['name'] = "viewport"
+    soup.head.append(meta)
+
 
 def remove_unwanted_styles(soup):
     for inlined in soup.select('[style]'):
@@ -56,7 +60,9 @@ def remove_unwanted_blocks(soup):
         '.right.side',
         '.page-footer-links',
         '#page-footer-copyright',
-        '#footer1'
+        '#footer2text',
+        '#footer1',
+        'script'
     )
     for selector in selectors:
         matches = soup.select(selector)
@@ -96,20 +102,26 @@ def replace_youtube_videos(soup):
             obj.extract()
 
 
-def add_dfid_logo(soup, filename):
+def update_logos(soup, filename):
     prefix = "../.." if 'openlearnworks/course/' in filename else "../../.."
     dfid_logo = os.path.join(prefix, 'tessindia/UK-AID-small.jpg')
+    ou_logo = os.path.join(prefix, 'tessindia/OU_logo_small.jpg')
     style = '''
 #footer3 {
     background: url("%s") no-repeat scroll 0px 0px transparent;
     width: 113px;
     height: 125px;
 }
-    ''' % dfid_logo
+div#page-footer-image div#footer2.wfooter-block div#footer2image {
+    background-image: url("%s");
+    width: 183px;
+    height: 125px;
+}
+    ''' % (dfid_logo, ou_logo)
 
-    dfid = soup.new_tag("style")
-    dfid.append(style)
-    soup.head.append(dfid)
+    logo_style = soup.new_tag("style")
+    logo_style.append(style)
+    soup.head.append(logo_style)
 
     footer3 = soup.new_tag("div", id="footer3")
     footer_root = soup.find("div", id="page-footer-image")
@@ -153,18 +165,31 @@ def fix_sidebar(soup):
     '''
     Remove sidebar if there is no interesting content in it.
 
-    If there is (.depth_4.current_branch exists), then replace its content
-    with that branch.
+    Intesting if exists: .depth_5 (1)
+                         or
+                         .depth_4.outcontent-tree-current-section (2)
+
+    In which case replace content with either
+        .depth_4.contains_branch (1)
+        or
+        .depth_4.current_branch (2)
+
     '''
     sidebar = soup.find("div", id="region-pre")
     if sidebar:
-        branch = sidebar.select(".depth_4.current_branch")
-        sidebar_root = sidebar.select("ul.block_tree")
-        if branch and sidebar_root:
-            branch = branch[0]
-            sidebar_root = sidebar_root[0]
-            sidebar_root.clear()
-            sidebar_root.append(branch)
+        sidebar_root = sidebar.select("ul.block_tree")[0]
+
+        matches = (
+            ('.depth_5', '.depth_4.contains_branch'),
+            ('.depth_4 .oucontent-tree-current-section', '.depth_4.current_branch'),
+        )
+
+        for check, content in matches:
+            if sidebar.select(check) and sidebar_root:
+                branch = sidebar.select(content)[0]
+                sidebar_root.clear()
+                sidebar_root.append(branch)
+                break
         else:
             sidebar.extract()
 
@@ -211,7 +236,7 @@ def process_page(content, filename):
     remove_unwanted_blocks(soup)
     remove_illegal_chars_from_links(soup)
     replace_youtube_videos(soup)
-    add_dfid_logo(soup, filename)
+    update_logos(soup, filename)
     fix_sidebar(soup)
 
     return soup.prettify()
