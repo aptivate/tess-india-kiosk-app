@@ -100,20 +100,24 @@ def replace_youtube_videos(soup):
             obj.extract()
 
 
-def add_dfid_logo(soup, filename):
+def update_logos(soup, filename):
     prefix = "../.." if 'openlearnworks/course/' in filename else "../../.."
     dfid_logo = os.path.join(prefix, 'tessindia/UK-AID-small.jpg')
+    ou_logo = os.path.join(prefix, 'tessindia/OU_logo_small.jpg')
     style = '''
 #footer3 {
     background: url("%s") no-repeat scroll 0px 0px transparent;
     width: 113px;
     height: 125px;
 }
-    ''' % dfid_logo
+div#page-footer-image div#footer2.wfooter-block div#footer2image {
+    background-image: url("%s");
+}
+    ''' % (dfid_logo, ou_logo)
 
-    dfid = soup.new_tag("style")
-    dfid.append(style)
-    soup.head.append(dfid)
+    logo_style = soup.new_tag("style")
+    logo_style.append(style)
+    soup.head.append(logo_style)
 
     footer3 = soup.new_tag("div", id="footer3")
     footer_root = soup.find("div", id="page-footer-image")
@@ -215,7 +219,7 @@ def process_page(content, filename):
     remove_unwanted_blocks(soup)
     remove_illegal_chars_from_links(soup)
     replace_youtube_videos(soup)
-    add_dfid_logo(soup, filename)
+    update_logos(soup, filename)
     fix_sidebar(soup)
 
     return soup.prettify()
