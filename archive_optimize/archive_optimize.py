@@ -161,18 +161,31 @@ def fix_sidebar(soup):
     '''
     Remove sidebar if there is no interesting content in it.
 
-    If there is (.depth_4.current_branch exists), then replace its content
-    with that branch.
+    Intesting if exists: .depth_5 (1)
+                         or
+                         .depth_4.outcontent-tree-current-section (2)
+
+    In which case replace content with either
+        .depth_4.contains_branch (1)
+        or
+        .depth_4.current_branch (2)
+
     '''
     sidebar = soup.find("div", id="region-pre")
     if sidebar:
-        branch = sidebar.select(".depth_4.current_branch")
-        sidebar_root = sidebar.select("ul.block_tree")
-        if branch and sidebar_root:
-            branch = branch[0]
-            sidebar_root = sidebar_root[0]
-            sidebar_root.clear()
-            sidebar_root.append(branch)
+        sidebar_root = sidebar.select("ul.block_tree")[0]
+
+        matches = (
+            ('.depth_5', '.depth_4.contains_branch'),
+            ('.depth_4 .oucontent-tree-current-section', '.depth_4.current_branch'),
+        )
+
+        for check, content in matches:
+            if sidebar.select(check) and sidebar_root:
+                branch = sidebar.select(content)[0]
+                sidebar_root.clear()
+                sidebar_root.append(branch)
+                break
         else:
             sidebar.extract()
 
