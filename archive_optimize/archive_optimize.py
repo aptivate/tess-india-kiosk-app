@@ -23,6 +23,10 @@ def add_mobile_css(soup):
     mobile_style.append(MOBILE_CSS)
     soup.head.append(mobile_style)
 
+    meta = soup.new_tag("meta", content="width=device-width")
+    meta.attrs['name'] = "viewport"
+    soup.head.append(meta)
+
 
 def remove_unwanted_styles(soup):
     for inlined in soup.select('[style]'):
