@@ -60,6 +60,7 @@ def remove_unwanted_blocks(soup):
         '.right.side',
         '.page-footer-links',
         '#page-footer-copyright',
+        '#footer2text',
         '#footer1'
     )
     for selector in selectors:
@@ -112,6 +113,8 @@ def update_logos(soup, filename):
 }
 div#page-footer-image div#footer2.wfooter-block div#footer2image {
     background-image: url("%s");
+    width: 183px;
+    height: 125px;
 }
     ''' % (dfid_logo, ou_logo)
 
