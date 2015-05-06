@@ -19,11 +19,11 @@ video {
 }
 .ol-variant-grey #page-header-back,
 #page-header-back {
-    min-height: auto;
+    min-height: 0;
     background: none repeat scroll 0% 0% transparent;
 }
 #page-header {
-    min-height: auto;
+    min-height: 0;
     background: none repeat scroll 0% 0% transparent;
 }
 #page-header .breadcrumb {
@@ -52,6 +52,9 @@ body.side-pre-only #page-content #region-main {
     margin-left: 0;
     overflow: hidden;
 }
+#page-content .region-content {
+    padding-top: 0;
+}
 .course-content ul.topics li.section .content {
     margin: 0;
 }
@@ -59,7 +62,7 @@ body.side-pre-only #page-content #region-main {
     margin: 1em 0;  /* Increase margin's on first page for easier control with fingers */
 }
 .block-region {
-    min-height: auto;
+    min-height: 0;
 }
 
 /* FOOTER */
