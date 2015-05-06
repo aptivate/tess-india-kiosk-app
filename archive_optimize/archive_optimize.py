@@ -61,7 +61,8 @@ def remove_unwanted_blocks(soup):
         '.page-footer-links',
         '#page-footer-copyright',
         '#footer2text',
-        '#footer1'
+        '#footer1',
+        'script'
     )
     for selector in selectors:
         matches = soup.select(selector)
