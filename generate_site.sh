@@ -31,8 +31,6 @@ done
 if [ -e $TESS_DIR ]; then rm $TESS_DIR; fi
 ln -s $SCRIPT_DIR/SiteArchive/generated_content/optimized $TESS_DIR
 
-# move tess index.html into tess content dir
-mv $OUT_DIR/tess.html $TESS_DIR/index.html
 
 skipzip="noskip"
 if [ $# -eq 1 ] && [ $1 = 'skipzip' ]; then
