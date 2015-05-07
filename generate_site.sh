@@ -31,7 +31,6 @@ done
 if [ -e $TESS_DIR ]; then rm $TESS_DIR; fi
 ln -s $SCRIPT_DIR/SiteArchive/generated_content/optimized $TESS_DIR
 
-# TODO: use the redirect HTML page from: http://stackoverflow.com/a/5411601/3189
 # move tess index.html into tess content dir
 mv $OUT_DIR/tess.html $TESS_DIR/index.html
 
