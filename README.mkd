@@ -58,6 +58,15 @@ Install Fabric if you don't have it yet. Afterwards run
 On successful completion you should find the content at http://<ip_address>.
 
 
+Copying archive to Mirror for serving
+-------------------------------------
+
+The mirror is on lin-one.aptivate.org at tessindia.aptivate.org.  To update it,
+run:
+
+    fab mirror mirror_deploy
+
+
 
 OLD
 ===
