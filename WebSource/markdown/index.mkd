@@ -2,11 +2,11 @@
 
 ## The content
 
-You can browse it on this server - the [content starts here](TESSIndia.html).
+[TESS India Open Educational Resources](TESSIndia.html).
 
 ## Setting up your phone
 
-Please read the [install guide](install-guide.html).
+* [install guide](install-guide.html).
 
 Links to APK files? Or just from the install guide.
 
