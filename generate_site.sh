@@ -7,7 +7,8 @@ SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 MARKDOWN_DIR=$SCRIPT_DIR/WebSource/markdown
 HTML_DIR=$SCRIPT_DIR/WebSource/html
 OUT_DIR=$SCRIPT_DIR/WebContent
-TESS_DIR=$OUT_DIR/tesscontent
+TESSCONTENT=tess
+TESS_DIR=$OUT_DIR/$TESSCONTENT
 
 # TODO: reintroduce but don't delete zip file if skipzip
 # maybe wait until unite with fab script
@@ -31,7 +32,7 @@ if [ -e $TESS_DIR ]; then rm $TESS_DIR; fi
 ln -s $SCRIPT_DIR/SiteArchive/generated_content/optimized $TESS_DIR
 
 # TODO: use the redirect HTML page from: http://stackoverflow.com/a/5411601/3189
-# move tess index.html into tesscontent dir
+# move tess index.html into tess content dir
 mv $OUT_DIR/tess.html $TESS_DIR/index.html
 
 skipzip="noskip"
@@ -42,5 +43,5 @@ fi
 if [ $skipzip = "noskip" ]; then
     # create zip file (and dir)
     cd $OUT_DIR
-    zip -r tess.zip tesscontent
+    zip -r tess.zip $TESSCONTENT
 fi
