@@ -104,20 +104,26 @@ def replace_youtube_videos(soup):
 
 def update_logos(soup, filename):
     prefix = "../.." if 'openlearnworks/course/' in filename else "../../.."
+    '''
     dfid_logo = os.path.join(prefix, 'tessindia/UK-AID-small.jpg')
     ou_logo = os.path.join(prefix, 'tessindia/OU_logo_small.jpg')
+    '''
+
     style = '''
-#footer3 {
-    background: url("%s") no-repeat scroll 0px 0px transparent;
+#footer3 {{
+    background: url("{0}/tessindia/UK-AID-small.jpg") no-repeat scroll 0px 0px transparent;
     width: 113px;
     height: 125px;
-}
-div#page-footer-image div#footer2.wfooter-block div#footer2image {
-    background-image: url("%s");
+}}
+div#page-footer-image div#footer2.wfooter-block div#footer2image {{
+    background-image: url("{0}/tessindia/OU_logo_small.jpg");
     width: 183px;
     height: 125px;
-}
-    ''' % (dfid_logo, ou_logo)
+}}
+#page-course-view-topics .activityinstance > a {{
+    background-image: url("{0}/tessindia/sprite-bg.png");
+}}
+    '''.format(prefix)
 
     logo_style = soup.new_tag("style")
     logo_style.append(style)

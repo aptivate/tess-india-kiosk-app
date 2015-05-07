@@ -5,6 +5,9 @@ body {
 body {
     min-width: 100px;
 }
+* {
+    box-sizing: border-box;
+}
 video {
     width: 100%;
 }
@@ -96,4 +99,67 @@ div#page-footer-image div.wfooter-block,
         float: left;
     }
 }
+
+
+/*
+ * Homepage
+ */
+#section-0 .summary td {
+    background: none repeat scroll 0 0 #eee;
+    border: medium none;
+    padding: 2em;
+}
+
+
+#page-course-view-topics h3.sectionname {
+    margin: 0;
+}
+
+#page-course-view-topics .section.img-text li.activity {
+    display: inline-block;
+    width: 49%;
+}
+
+#region-main div.activityinstance {
+    padding-right: 0;
+    width: 100%;
+    height:auto;
+}
+
+@media screen and (max-width: 450px) {
+    #region-main div.activityinstance {
+    width:100%;
+    }
+}
+
+#page-course-view-topics .activityinstance > a {
+    background-position: 10px -322px;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    line-height: 1.3em;
+    margin: 0.5em 0.2em 0.2em;
+    min-height: 50px;
+    padding: 1.5em 0.2em 0.2em 1.8em;
+    position: relative;
+    text-align: left;
+    text-decoration: none !important;
+}
+
+@media screen and (max-width: 650px) {
+    #page-course-view-topics .section.img-text li.activity {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    #page-course-view-topics .activityinstance > a {
+        padding: 1em 0.2em 1em 1.8em;
+    }
+}
+
+
+
+
+
 
