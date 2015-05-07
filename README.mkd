@@ -48,6 +48,9 @@ Generate the static HTML
 
 Run `./generate_site.sh` to convert markdown to HTML in ./WebContent/
 
+Use `./generate_site.sh skipzip` to skip the final (and slow) stage
+of creating the zip file from the content.
+`
 
 Copying archive to PI for serving
 ---------------------------------
