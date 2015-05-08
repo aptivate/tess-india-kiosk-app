@@ -7,7 +7,3 @@
 ## Setting up your phone
 
 * [install guide](install-guide.html).
-
-Links to APK files? Or just from the install guide.
-
-Link to content zip file?
