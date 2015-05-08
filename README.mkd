@@ -8,7 +8,8 @@ Quick version
     rm -rf SiteArchive/generated_content/optimized
     ./archive_optimize/archive_optimize.py SiteArchive/generated_content/www.open.edu SiteArchive/generated_content/optimized
     ./generate_site.sh
-    fab copy -H 10.0.156.125
+    fab pi copy -H 10.0.156.125
+    fab mirror mirror_deploy
 
 Generating the TESS India site archive
 --------------------------------------
@@ -56,7 +57,7 @@ Copying archive to PI for serving
 ---------------------------------
 
 Install Fabric if you don't have it yet. Afterwards run
-`fab copy -H <pi_address>` where <pi_address> is hostname or IP address of PI.
+`fab pi copy -H <pi_address>` where <pi_address> is hostname or IP address of PI.
 
 On successful completion you should find the content at http://<ip_address>.
 

@@ -39,7 +39,7 @@ def mirror_deploy():
     repo = 'git@git.aptivate.org:tessindia.git'
     base_dir = os.path.abspath(os.path.dirname(__file__))
     code_dir = '/var/www/tessindia/'
-    content_relative_path = 'WebContent/tesscontent'
+    content_relative_path = 'WebContent'
 
     git_clone_pull(code_dir, repo)
 
