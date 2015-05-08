@@ -1,104 +1,85 @@
 Obtaining and Viewing TESS India OER Content
 ============================================
 
-In order to view and use TESS content on your phone, you will need to install some extra applications.
-
-Getting the Applications
-------------------------
-
-Download the following APKs:
-
-* [Firefox](firefox.apk)
-* [OI File Manager](file_manager.apk)
-* [Open In Browser](open_in_browser.apk)
-
-You will also need the archive that you can transfer near the end of this manual
+In order to view and use TESS content on your phone, you need to install some
+applications.
 
 Installing the Applications
 ---------------------------
 
-### Updating your settings ###
+The applications are in the top folder of the project MicroSD card; insert it
+into your phone.
 
-In order to install the applications you just downloaded, you will need to change the settings on your phone to allow installing applications from unknown sources (i.e. not the Google Play store).
+Use your phone's file manager to open the external SD card 
 
-Open the list of applications on your phone. This may be done through something like a four by four grid of rectangles in the right hand corner, or a circle with two rows of three dots in it.
+* Open the file manager
 
-![Samsung Galaxy application list](static/images/samsung_galaxy_application_list_tiny.png)
+> If your phone doesn't have a file manager download [OI File
+> Manager](file_manager.apk) and use _Package Installer_ to install it.  Follow
+> the instructions below; when you get to the end select OPEN, then ACCEPT the
+> licence and then CONTINE. Then use OI File Manager to open the external SD
+> card.
 
-Find the 'Settings' app and open it.
+* In the file manager go to `/storage/extSdCard`
 
-![Samsung Galaxy settings app](static/images/samsung_galaxy_settings_app_tiny.png)
+The applications files are:
 
-Scroll down until you see 'Security'.
+* [firefox.apk](firefox.apk)
+* [open in browser.apk](open_in_browser.apk)
 
-![Samsung Galaxy application list](static/images/samsung_galaxy_security_tiny.png)
+Install then in turn, by selecting the file.
 
-Go into the security settings and check a box called 'Unknown sources'.
+* A box will appear saying 'Install Blocked'; follow the SETTINGS link to your
+  phone settings.
 
-![Samsung Galaxy warning](static/images/samsung_galaxy_unknown_sources_tiny.png)
+* Under _Unknown Sources_, check the box marked 'Allow installation of
+  applications from both trusted and untrusted sources.'
 
-Read the warning message and select 'OK'. It is safe to do so for the APK's we're providing.
+A box will appear with a warning about installing applications from unknown sources. 
 
-![Samsung Galaxy warning](static/images/samsung_galaxy_warning.png)
+* Check the box at the bottom marked 'Allow this installation only'.
+
+* Click OK
+
+The next screen gives details of the permissions that the application needs
+
+* If necessary, select NEXT until you see the option to INSTALL
+
+* Click INSTALL
+
+* For _Firefox_, select DONE and repeat the process above for _Open In Browser_
+
+* for _Open In Browser_, select OPEN and go to the next step. 
+
 
 Configure Open In Browser
 -------------------------
-Open 'Open in browser' and select 'Firefox'. Please use the firefox browser provided to avoid permissions issues.
 
-### Installing the APKs ###
+* Open _Open in browser_ and select _Firefox_ as your preferred browser. 
 
-To install the APKs, open OI File Manager (or another android file browser) and open the "Download" folder on the device.
+* Press the back button to exit the preferences screen.
 
-The APKs you downloaded should be inside. Depending on which application you used to download the applications, they may be in a different folder.
 
-![Download Folder](static/images/download_folder_tiny.png)
+Open the TESS India content
+---------------------------
 
-If OI File Manager isn't installed, use a web browser like Chrome and go to `file:///location/where/apks/were/downloaded/` (probably a subfolder of `/sdcard`). The actual url will look something like `file:///sdcard/Download/`.
+* In the file manager go to `/storage/extSdCard`
 
-![Browser url](static/images/browser_url_tiny.png)
+* Select 'TESSIndia.html'
 
-Run each APK select `Install` or possibly `Next` and then `Install`.
+> If _Firefox_ browser doesn't open immediately, you might
+> see a box asking what application to use to open the file.
+> 
+> * Select _Firefox_ and then ALWAYS.
 
-![Install screen](static/images/install.png)
 
-Get the TESS archive
---------------------
+Add a bookmark to your home screen
+-------------------------------------
 
-You will be given the TESS archive on an sd card. Insert it into your phone.
+* Tap and hold the Firefox address bar for about 2 seconds
 
-View the TESS archive
----------------------
+* select 'Add to Home Screen'
 
-To install the APKs, open My Files (or another android file browser) and open the "Download" folder on the device.
-
-![My Files App](static/images/my_files_tiny.png)
-
-![Download Folder](static/images/download_folder_tiny.png)
-
-If MyFiles isn't installed, use a web browser like Chrome and go to `file:///location/where/apks/were/downloaded/` (probably a subfolder of `/sdcard`). The actual url will look something like `file:///sdcard/Download/`.
-
-![Browser url](static/images/browser_url_tiny.png)
-
-Scroll down to  `Local Storage`
-
-Select 'SD Card'
-
-Select index.html and it will open in Firefox.
-
-Select the three dots in the location bar.
-
-Select the star in the menu that appears.
-
-Select 'Options' and then 'Add to Home Screen'.
-
-Create a shortcut
------------------
-
-Go to the main screen of your phone.
-
-Select and hold the background.
-
-Select 'Widgets' then choose 'Bookmarks'.
-
-To view the content, you will only need to select the page in the bookmarks widget.
+There will now be an icon on your home screen you can click to open the TESS
+India OER content.
 
