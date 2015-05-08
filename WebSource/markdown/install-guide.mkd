@@ -72,7 +72,9 @@ Open the OI File Manager. You will start in `/storage/emulated/sdcard`.
 
 Select Storage
 
-Select the tesscontent folder.
+Select 'extSdCard'
+
+Select the tess folder.
 
 Select index.html and it will open in Chrome.
 
