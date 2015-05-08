@@ -258,6 +258,25 @@ def process_file(filename):
         f.write(content.encode('utf8'))
 
 
+def remove_pdf_links_from_key_resources(soup):
+    # class="activity subpage-even resource modtype_resource "
+    for pdf_link in soup.find_all('li', class_='modtype_resource'):
+        pdf_link.extract()
+
+
+def process_key_resources(copy_dir):
+    key_resource_file = os.path.join(
+        copy_dir, 'openlearnworks/mod/subpage/view.phpQid=56420.html')
+    with open(key_resource_file, 'r') as f:
+        orig_content = f.read()
+    soup = BeautifulSoup(orig_content)
+    remove_pdf_links_from_key_resources(soup)
+
+    content = soup.prettify()
+    with open(key_resource_file, 'w') as f:
+        f.write(content.encode('utf8'))
+
+
 def remove_illegal_chars_from_filename(filename):
     new_filename = remove_illegal_chars_from_name(filename)
     if new_filename != filename:
@@ -300,6 +319,8 @@ def main(orig_dir, copy_dir):
                     print 'Processing: ', f
                     process_file(f)
                 remove_illegal_chars_from_filename(f)
+    # and then some individual fixes
+    process_key_resources(copy_dir)
 
 
 if __name__ == '__main__':
