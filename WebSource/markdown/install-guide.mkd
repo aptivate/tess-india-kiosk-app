@@ -8,6 +8,7 @@ Getting the Applications
 
 Download the following APKs:
 
+* [Firefox](firefox.apk)
 * [OI File Manager](file_manager.apk)
 * [Open In Browser](open_in_browser.apk)
 
@@ -42,7 +43,7 @@ Read the warning message and select 'OK'. It is safe to do so for the APK's we'r
 
 Configure Open In Browser
 -------------------------
-Open 'Open in browser' and select 'Chrome' (or a different option if you prefer a different browser)
+Open 'Open in browser' and select 'Firefox'. Please use the firefox browser provided to avoid permissions issues.
 
 ### Installing the APKs ###
 
@@ -76,11 +77,13 @@ Select 'extSdCard'
 
 Select the tess folder.
 
-Select index.html and it will open in Chrome.
+Select index.html and it will open in Firefox.
 
 Select the three dots in the location bar.
 
-Select the star in the menu that appears and select 'Save' on the dialogue box
+Select the star in the menu that appears.
+
+Select 'Options' and then 'Add to Home Screen'.
 
 Create a shortcut
 -----------------
