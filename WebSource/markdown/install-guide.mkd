@@ -69,13 +69,19 @@ You will be given the TESS archive on an sd card. Insert it into your phone.
 View the TESS archive
 ---------------------
 
-Open the OI File Manager. You will start in `/storage/emulated/sdcard`.
+To install the APKs, open My Files (or another android file browser) and open the "Download" folder on the device.
 
-Select Storage
+![My Files App](static/images/my_files_tiny.png)
 
-Select 'extSdCard'
+![Download Folder](static/images/download_folder_tiny.png)
 
-Select the tess folder.
+If MyFiles isn't installed, use a web browser like Chrome and go to `file:///location/where/apks/were/downloaded/` (probably a subfolder of `/sdcard`). The actual url will look something like `file:///sdcard/Download/`.
+
+![Browser url](static/images/browser_url_tiny.png)
+
+Scroll down to  `Local Storage`
+
+Select 'SD Card'
 
 Select index.html and it will open in Firefox.
 
